@@ -1,5 +1,5 @@
 
-	var width = "30%";
+	var width = 30;
 	var score = 0;
 	var timer = 0;
 
@@ -23,7 +23,6 @@ function start() {
 		$(this).find(".petitrond").data('explode', "1");
 		eclate( $(this).data('tag'), width) ;
 	});	
-	
 }
 
 function check () {
