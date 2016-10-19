@@ -58,7 +58,7 @@ var j=0;
 	$('.grandrond').css('max-height', maxheight);
 	
 	/*$(".app").append("<button class='play'>Jouer</button>");*/
-	$(".table1").append("<div id='col-A' class='col s2' ><button class='play'>Jouer</button>");
+	$(".table1").append("<div id='col-A' class='col s2' ><button class='play waves-effect waves-light btn blue'>Jouer</button>");
 	$(".table1").append("<br>Score :<span class='score'>0</span></div>");
 	$(".table5").append("<div id='col-B' class='col s2 col-marine'><img src='img/marine.png' class='responsive-img marine'></div>");
 
@@ -117,7 +117,7 @@ function eclate(tag, points) {
 	$(".score").text(score_total);
 	nbBublleDetruite += 1;
     if(nbBublleDetruite==15){
-        $(".message").append("You survived ! Keep going");
+        $(".app").append("<div class='message'>You survived ! Keep going</div>");
         $(".table4").append("<div id='col-D' class='col s2' ><a href='secondniveau'  class='waves-effect waves-light btn blue nextlevel' >Next level</a> ");
     }
 }
