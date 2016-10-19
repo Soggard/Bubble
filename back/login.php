@@ -3,51 +3,30 @@
 require('config/db.php');
 require('config/session.php');
 
-/*if (isset($_POST['pseudo']) && !empty($_POST['pseudo'])
-  && isset($_POST['password']) && !empty($_POST['password'])){
+	if( isset($_POST['pseudo']) && isset($_POST['password']) ){
+		$request = $db->prepare('SELECT pseudo, password FROM app_users WHERE pseudo = :pseudo');
 
-  session_unset();
+		$request->execute(
+			array(
+				'pseudo' => $_POST['pseudo']
+			)
+		 );
 
-$request = $db->prepare('SELECT id, pseudo, password FROM app_users WHERE pseudo = :pseudo');
+		while ($data = $request->fetch() ) {
+			$pseudo = $data['pseudo'];
+			$password = $data['password'];
 
-$request->execute(
-  array(
-    'pseudo' => $_POST['pseudo']
-    )
-  );
-
-
-while ($data = $request->fetch()){
-
-  if ($data['password'] == $_POST['password']){
-
-    $_SESSION['id_user'] = $data['id'];
-    $_SESSION['pseudo_user'] = $data['pseudo'];
-
-      }
-    }
-
-    $request->CloseCursor();
-
-    echo 'Pseudo et/ou mot de passe incorrects';
-  }
-  
-  */
-
-    $pseudo = "Sdz";
-    $password = "salut";
-
-    if( isset($_POST['pseudo']) && isset($_POST['password']) ){
-
-        if($_POST['pseudo'] == $pseudo && $_POST['password'] == $password){ // Si les infos correspondent...
-            session_start();
-            $_SESSION['user'] = $username;
-            echo "Success";        
-        }
-        else{ // Sinon
-            echo "Failed";
-        }
-
-    }
+			if($_POST['pseudo'] == $data['pseudo'] && $_POST['password'] == $data['password']){ // Si les infos correspondent...
+				
+				$_SESSION['pseudo'] = $data['pseudo'];
+				
+				
+				echo "true";        
+			}
+			else{ // Sinon
+				echo "false";
+			}
+		}
+	}
   ?>
 

@@ -119,3 +119,4 @@ function eclate(tag, points) {
         $(".table4").append("<div id='col-6' class='col s2' ><a href='secondniveau'>Jouer au niveau suivant</a> ");
     }
 }
+
