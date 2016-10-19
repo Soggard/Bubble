@@ -112,4 +112,9 @@ function eclate(tag, points) {
 	// On masque la bulle
 	$(".rond"+tag).hide();
 	$(".score").text(score_total);
+	nbBublleDetruite += 1;
+    if(nbBublleDetruite==15){
+        $(".table3").append("<div id='col-6' class='col s2' >Fini");
+        $(".table4").append("<div id='col-6' class='col s2' ><a href='secondniveau'>Jouer au niveau suivant</a> ");
+    }
 }
