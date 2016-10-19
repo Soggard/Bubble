@@ -17,7 +17,7 @@ body, html {
 .rond {
 	border-radius: 50%;
 	background-color: red;
-	opacity: 0.50;
+	/*opacity: 0.50;*/
 }
 
 .grandrond {
@@ -34,7 +34,10 @@ body, html {
     width: 100%;
 	transform: scale(0);
 	display: inline-block;
-	background-color: blue;
+	/*background-color: blue;*/
+	background-image: url('../img/zerg.png');
+	background-size: cover;
+	opacity: 1;
 }
 
 .case {
