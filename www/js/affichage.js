@@ -77,6 +77,12 @@ function start() {
 		$(this).find(".petitrond").data('explode', "1");
 		var id_boule = $(this).find(".petitrond").data('tag');
 		eclate( $(this).data('tag'), width[id_boule]) ;
+		// Son de tir
+		$('#tir')[0].pause();
+		$('#tir')[0].currentTime = 0;
+		$('#tir')[0].play();
+		console.log("feu");
+
 	}); 
 } // LANCEMENT DU JEU 
 
