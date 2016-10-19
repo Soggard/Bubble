@@ -66,7 +66,7 @@ var j=0;
 	$(".table1").append("<br>Score :<span class='score'>0</span></div>");
 
 	// Son
-	$(".table3").append("<div id='col-C' class='col s2'> <i class='large material-icons'>input</i> </div>");
+	$(".table3").append("<div id='col-C' class='col s2'> <button id='soundonoff'>Son on/off</button></div>");
 
 	// Space marine
 	$(".table5").append("<div id='col-B' class='col s2 col-marine'><img src='img/marine.png' class='responsive-img marine'></div>");
@@ -77,6 +77,11 @@ var j=0;
 		start();
 		$(this).hide();
 	});
+
+	$("#soundonoff").click( function() {
+		soundSwitch();
+	});
+
 }); // FIN DE L INITIATION DU JEU 
 
 
@@ -91,7 +96,6 @@ function start() {
 		$('#tir')[0].pause();
 		$('#tir')[0].currentTime = 0;
 		$('#tir')[0].play();
-		console.log("feu");
 
 	}); 
 } // LANCEMENT DU JEU 
@@ -136,4 +140,18 @@ function eclate(tag, points) {
         $(".app").append("<div class='message'>You survived ! Keep going</div>");
         $(".table4").append("<div id='col-D' class='col s2' ><a href='secondniveau'  class='waves-effect waves-light btn blue nextlevel' >Next level</a> ");
     }
+}
+
+
+
+
+function soundSwitch () {
+	
+	if ($('#music').prop("volume") == 0.1) {
+		$('#music').prop("volume", 0);
+		console.log("Son off");
+	} else {
+		$('#music').prop("volume", 0.1);
+		console.log("Son on");
+	}
 }
