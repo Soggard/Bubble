@@ -58,6 +58,9 @@ body, html {
 
 .col-marine {
 	max-width: 20%;
+	max-height: 100%;
+	height: 100%;
+	position: relative;
 }
 
 .marine {

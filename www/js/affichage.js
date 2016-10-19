@@ -33,7 +33,11 @@ $(document).ready(function() {
 		}			
 		
 	}
-	
+
+	$('#music')[0].play();
+	$('#music').prop("volume", 0.1);
+
+
 var j=0;
 	
 	while( j < 15 ) {
@@ -60,7 +64,13 @@ var j=0;
 	/*$(".app").append("<button class='play'>Jouer</button>");*/
 	$(".table1").append("<div id='col-A' class='col s2' ><button class='play waves-effect waves-light btn blue'>Jouer</button>");
 	$(".table1").append("<br>Score :<span class='score'>0</span></div>");
+
+	// Son
+	$(".table3").append("<div id='col-C' class='col s2'> <i class='large material-icons'>input</i> </div>");
+
+	// Space marine
 	$(".table5").append("<div id='col-B' class='col s2 col-marine'><img src='img/marine.png' class='responsive-img marine'></div>");
+
 
 	/*$(".table1").append("<br>Score :<span class='score'>0</span>");*/
 	$(".play").click( function() {
