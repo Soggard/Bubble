@@ -8,6 +8,7 @@
 
 $(document).ready(function() {
 	// CREER 5 LIGNES AVEC 5 CASES 
+
 	$(".app").append("<div class='table1 row'></div>");		
 	$(".app").append("<div class='table2 row'></div>");
 	$(".app").append("<div class='table3 row'></div>");
@@ -50,6 +51,10 @@ var j=0;
 		scale[i] = 0;		
 		score[i] = 0;
 	}
+
+	var maxheight =  "" + $('#col-1').width()+"px";
+	console.log(maxheight);
+	$('.grandrond').css('max-height', maxheight);
 	
 	/*$(".app").append("<button class='play'>Jouer</button>");*/
 	$(".table1").append("<div id='col-6' class='col s2' ><button class='play'>Jouer</button>");
