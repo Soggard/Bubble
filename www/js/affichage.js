@@ -58,9 +58,9 @@ var j=0;
 	$('.grandrond').css('max-height', maxheight);
 	
 	/*$(".app").append("<button class='play'>Jouer</button>");*/
-	$(".table1").append("<div id='col-6' class='col s2' ><button class='play'>Jouer</button>");
+	$(".table1").append("<div id='col-A' class='col s2' ><button class='play'>Jouer</button>");
 	$(".table1").append("<br>Score :<span class='score'>0</span></div>");
-	$(".table5").append("<div id='col-6' class='col s2 col-marine'><img src='img/marine.png' class='responsive-img marine'></div>");
+	$(".table5").append("<div id='col-B' class='col s2 col-marine'><img src='img/marine.png' class='responsive-img marine'></div>");
 
 	/*$(".table1").append("<br>Score :<span class='score'>0</span>");*/
 	$(".play").click( function() {
@@ -117,8 +117,7 @@ function eclate(tag, points) {
 	$(".score").text(score_total);
 	nbBublleDetruite += 1;
     if(nbBublleDetruite==15){
-        $(".table2").append("<div id='col-6' class='col s2' >You survived ! Keep going ! <br>");
-        $(".table2").append("<div id='col-6' class='col s2' ><a href='secondniveau'>Jouer au niveau suivant</a> ");
+        $(".message").append("You survived ! Keep going");
+        $(".table4").append("<div id='col-D' class='col s2' ><a href='secondniveau'  class='waves-effect waves-light btn blue nextlevel' >Next level</a> ");
     }
 }
-
