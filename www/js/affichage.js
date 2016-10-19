@@ -5,6 +5,7 @@
 	var timer = 0;
 	var timer_rapid = 0;
 	var score_total = 0;
+	var nbBublleDetruite = 0;
 
 $(document).ready(function() {
 	// CREER 5 LIGNES AVEC 5 CASES 

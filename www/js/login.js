@@ -1,3 +1,5 @@
+$session = "";
+
 $(document).ready(function() {
 
 	 $("#submit").click(function() { // CONNEXION 	
