@@ -12,11 +12,13 @@ body, html {
 	width: 100%;
 	height: 100%;
 	background-color: pink;
+	background-image: url(../img/bg.jpg);
+	background-size: cover;
 }
 
 .rond {
 	border-radius: 50%;
-	background-color: red;
+	/*background-color: red;*/
 	/*opacity: 0.50;*/
 }
 
@@ -24,6 +26,7 @@ body, html {
 	height:  100%;
 	width:  100%;
 	display: inline-block;
+	background-color: rgba(90, 10, 43, 0.7);
 	text-align: center;
 	position: relative;
 }
@@ -34,7 +37,7 @@ body, html {
     width: 100%;
 	transform: scale(0);
 	display: inline-block;
-	/*background-color: blue;*/
+	background-color: rgba(34, 10, 43, 0.7);
 	background-image: url('../img/zerg.png');
 	background-size: cover;
 	opacity: 1;
@@ -51,4 +54,16 @@ body, html {
 	margin: 0 auto;
 	/*min-height: 80px;*/
 	height: 20%;
+}
+
+.col-marine {
+	max-width: 20%;
+}
+
+.marine {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	max-width: 100%;
+	max-height: 100%;
 }

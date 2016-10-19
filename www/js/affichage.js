@@ -60,6 +60,8 @@ var j=0;
 	/*$(".app").append("<button class='play'>Jouer</button>");*/
 	$(".table1").append("<div id='col-6' class='col s2' ><button class='play'>Jouer</button>");
 	$(".table1").append("<br>Score :<span class='score'>0</span></div>");
+	$(".table5").append("<div id='col-6' class='col s2 col-marine'><img src='img/marine.png' class='responsive-img marine'></div>");
+
 	/*$(".table1").append("<br>Score :<span class='score'>0</span>");*/
 	$(".play").click( function() {
 		start();
@@ -70,7 +72,7 @@ var j=0;
 
 function start() {
 	console.log( "start!" );
-	setInterval( check , 200 ); /* Tous les 200ms */
+	setInterval( check , 100 ); /* Tous les 200ms */
 	$('.grandrond').click(  function() {
 		$(this).find(".petitrond").data('explode', "1");
 		var id_boule = $(this).find(".petitrond").data('tag');
@@ -79,21 +81,21 @@ function start() {
 } // LANCEMENT DU JEU 
 
 function check () {
-	timer_rapid += 10;
+	timer_rapid += 5;
 	for (var i=0; i<25; i++) {		
 		$(".rond"+i).each(function() {
 			
 			if ($(this).data('start') <= timer && $(this).data('explode') != '1') { /* Si le temps du lancement du rond est passé ET que la bulle n'a pas déjà éclaté, on lance la fonction */
 				width[i] += 10;
-				scale[i] += 0.1;
-				console.log(width);
+				scale[i] += 0.05;
+				//console.log(width);
 				$(this).css("transform" , "scale("+scale[i]+")" );
 				if (scale[i] >= 1 ) {
 					// La bulle éclate naturellement
 					$(this).data('explode', "1");
 					eclate( $(this).data('tag'), -100);
-					scale[i] = 0.1;
-					width[i] = 0;
+					//scale[i] = 0.1;
+					//width[i] = 0;
 				} else {
 					
 				}	
@@ -115,8 +117,8 @@ function eclate(tag, points) {
 	$(".score").text(score_total);
 	nbBublleDetruite += 1;
     if(nbBublleDetruite==15){
-        $(".table3").append("<div id='col-6' class='col s2' >Fini");
-        $(".table4").append("<div id='col-6' class='col s2' ><a href='secondniveau'>Jouer au niveau suivant</a> ");
+        $(".table2").append("<div id='col-6' class='col s2' >You survived ! Keep going ! <br>");
+        $(".table2").append("<div id='col-6' class='col s2' ><a href='secondniveau'>Jouer au niveau suivant</a> ");
     }
 }
 
