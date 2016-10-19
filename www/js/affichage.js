@@ -51,8 +51,10 @@ var j=0;
 		score[i] = 0;
 	}
 	
-	$(".app").append("<button class='play'>Jouer</button>");
-	$(".app").append("Score :<span class='score'>0</span>");
+	/*$(".app").append("<button class='play'>Jouer</button>");*/
+	$(".table1").append("<div id='col-6' class='col s2' ><button class='play'>Jouer</button>");
+	$(".table1").append("<br>Score :<span class='score'>0</span></div>");
+	/*$(".table1").append("<br>Score :<span class='score'>0</span>");*/
 	$(".play").click( function() {
 		start();
 		$(this).hide();
