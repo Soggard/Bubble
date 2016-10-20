@@ -138,7 +138,7 @@ function eclate(tag, points) {
 	nbBublleDetruite += 1;
     if(nbBublleDetruite==15){
         $(".app").append("<div class='message'>You survived ! Keep going</div>");
-        $(".table4").append("<div id='col-D' class='col s2' ><a href='secondniveau'  class='waves-effect waves-light btn blue nextlevel' >Next level</a> ");
+        $(".table4").append("<div id='col-D' class='col s2' ><a href='niv2.html' class='waves-effect waves-light btn blue nextlevel' >Next level</a> ");
     }
 }
 
