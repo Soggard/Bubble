@@ -63,10 +63,10 @@ var j=0;
 	
 	/*$(".app").append("<button class='play'>Jouer</button>");*/
 	$(".table1").append("<div id='col-A' class='col s2' ><button class='play waves-effect waves-light btn blue'>Jouer</button>");
-	$(".table1").append("<br>Score :<span class='score'>0</span></div>");
+	$(".table1").append("<br>Score :<span class='score'>0</span>");
 
 	// Son
-	$(".table3").append("<div id='col-C' class='col s2'> <button id='soundonoff'>Son on/off</button></div>");
+	$(".table3").append("<div id='col-C' class='col s2'> <button id='soundonoff' class='waves-effect waves-light btn blue' style='padding-left:0;padding-right:0'> Son on/off</button></div>");
 
 	// Space marine
 	$(".table5").append("<div id='col-B' class='col s2 col-marine'><img src='img/marine.png' class='responsive-img marine'></div>");
