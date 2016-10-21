@@ -72,9 +72,10 @@ $(document).ready(function() {
 	$("#score_total").click( function() {
 
 	
-		 var score = parseInt(localStorage.getItem("score_niv1")) + parseInt(localStorage.getItem("score_niv2")) + parseInt(localStorage.getItem("score_niv3")) + parseInt(localStorage.getItem("score_niv4")) ;
+		
+		var score_nv1 = localStorage.getItem("score_niv4");
 		 var pseudo = localStorage.getItem("pseudo");
-		 console.log(score, pseudo);
+		 console.log(score_nv1, pseudo);
 			$.post(
 				'http://melanie-croce.fr/projets/app-bubble-back/score.php', // PAGE PHP SUR LE SERVEUR
 				{
