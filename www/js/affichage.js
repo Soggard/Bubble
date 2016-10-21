@@ -113,7 +113,7 @@ function check () {
 				if (scale[i] >= 1 ) {
 					// La bulle éclate naturellement
 					$(this).data('explode', "1");
-					eclate( $(this).data('tag'), -100);
+					eclate( $(this).data('tag'), -50);
 					//scale[i] = 0.1;
 					//width[i] = 0;
 				} else {

@@ -57,7 +57,7 @@ $(document).ready(function() {
 
     var j=0;
 
-    while( j < 18 ) {
+    while( j < 24 ) {
         var id = Math.floor((Math.random() * 25) + 1); // GENERE UN ID ALEATOIREMENT
         if ( $("#col-"+id).data('libre') == 0) {
             var timer_multi = 200 + (2000 * j);
@@ -104,7 +104,7 @@ $(document).ready(function() {
 
 function start() {
     console.log( "start!" );
-    setInterval( check , 100 ); /* Tous les 200ms */
+    setInterval( check , 100 ); /* Tous les 100ms */
     $('.grandrond').click(  function() {
         $(this).find(".petitrond").data('explode', "1");
         var id_boule = $(this).find(".petitrond").data('tag');
@@ -124,7 +124,7 @@ function check () {
 
             if ($(this).data('start') <= timer && $(this).data('explode') != '1') { /* Si le temps du lancement du rond est passé ET que la bulle n'a pas déjà éclaté, on lance la fonction */
                 width[i] += 10;
-                scale[i] += 0.07;
+                scale[i] += 0.11;
                 //console.log(width);
                 $(this).css("transform" , "scale("+scale[i]+")" );
                 if (scale[i] >= 1 ) {
@@ -153,9 +153,9 @@ function eclate(tag, points) {
     $(".rond"+tag).hide();
     $(".score").text(score_total);
     nbBublleDetruite += 1;
-    if(nbBublleDetruite==18){
-        $(".app").append("<div class='message'>You survived ! Keep going</div>");
-        $(".table4").append("<div id='col-D' class='col s2' ><a href='niv3.html' class='waves-effect waves-light btn blue nextlevel' >Next level</a> ");
+    if(nbBublleDetruite==24){
+        $(".app").append("<div class='message'>You survived ! The day is rising ! <br> Your score is "+score_total+" </div>");
+        $(".table4").append("<div id='col-D' class='col s2' ><a href='systeme_point.html' class='waves-effect waves-light btn blue nextlevel' >View scores</a> ");
     }
 }
 
