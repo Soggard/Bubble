@@ -6,7 +6,10 @@ var timer = 0;
 var timer_rapid = 0;
 var score_total = 0;
 var nbBublleDetruite = 0;
+<<<<<<< HEAD
 var score_total_g = GetURLParameter('total');
+=======
+>>>>>>> origin/master
 
 
 function GetURLParameter(sParam)
@@ -57,7 +60,11 @@ $(document).ready(function() {
 
     var j=0;
 
+<<<<<<< HEAD
     while( j < 24 ) {
+=======
+    while( j < 20 ) {
+>>>>>>> origin/master
         var id = Math.floor((Math.random() * 25) + 1); // GENERE UN ID ALEATOIREMENT
         if ( $("#col-"+id).data('libre') == 0) {
             var timer_multi = 200 + (2000 * j);
@@ -80,8 +87,13 @@ $(document).ready(function() {
 
     /*$(".app").append("<button class='play'>Jouer</button>");*/
     $(".table1").append("<div id='col-A' class='col s2' ><button class='play waves-effect waves-light btn blue'>Jouer</button>");
+<<<<<<< HEAD
     $(".table1").append("<br>Score :<span class='score'>0</span>");
 
+=======
+    $(".table1").append("<br>Score :<span class='score'>0</span><br />");
+	$(".table1").append("<button class='waves-effect waves-light btn blue' id='logout'>Logout</button>");
+>>>>>>> origin/master
     // Son
     $(".table3").append("<div id='col-C' class='col s2'> <button id='soundonoff' class='waves-effect waves-light btn blue' style='padding-left:0;padding-right:0'> Son on/off</button></div>");
 
@@ -104,7 +116,11 @@ $(document).ready(function() {
 
 function start() {
     console.log( "start!" );
+<<<<<<< HEAD
     setInterval( check , 100 ); /* Tous les 100ms */
+=======
+    setInterval( check , 100 ); /* Tous les 200ms */
+>>>>>>> origin/master
     $('.grandrond').click(  function() {
         $(this).find(".petitrond").data('explode', "1");
         var id_boule = $(this).find(".petitrond").data('tag');
@@ -124,13 +140,21 @@ function check () {
 
             if ($(this).data('start') <= timer && $(this).data('explode') != '1') { /* Si le temps du lancement du rond est passé ET que la bulle n'a pas déjà éclaté, on lance la fonction */
                 width[i] += 10;
+<<<<<<< HEAD
                 scale[i] += 0.11;
+=======
+                scale[i] += 0.10;
+>>>>>>> origin/master
                 //console.log(width);
                 $(this).css("transform" , "scale("+scale[i]+")" );
                 if (scale[i] >= 1 ) {
                     // La bulle éclate naturellement
                     $(this).data('explode', "1");
+<<<<<<< HEAD
                     eclate( $(this).data('tag'), -50);
+=======
+                    eclate( $(this).data('tag'), -100);
+>>>>>>> origin/master
                     //scale[i] = 0.1;
                     //width[i] = 0;
                 } else {
@@ -153,12 +177,56 @@ function eclate(tag, points) {
     $(".rond"+tag).hide();
     $(".score").text(score_total);
     nbBublleDetruite += 1;
+<<<<<<< HEAD
     if(nbBublleDetruite==24){
         $(".app").append("<div class='message'>You survived ! The day is rising ! <br> Your score is "+score_total+" </div>");
         $(".table4").append("<div id='col-D' class='col s2' ><a href='systeme_point.html' class='waves-effect waves-light btn blue nextlevel' >View scores</a> ");
     }
 }
 
+=======
+    if(nbBublleDetruite==20){
+        $(".app").append("<div class='message'>You survived ! Keep going</div>");
+        $(".table4").append("<div id='col-D' class='col s2' ><button class='waves-effect waves-light btn blue' id='score_total' >Highscore</button> ");
+		localStorage.setItem("score_niv4", score_total);
+    }
+}
+
+$(document).on('click', '#logout', function() {
+	localStorage.clear();
+	window.location.href = 'index.html';
+})
+
+
+
+$(document).on('click', "#score_total", function() {
+
+	
+ 		var score = parseInt(localStorage.getItem("score_niv1")) + parseInt(localStorage.getItem("score_niv2")) + parseInt(localStorage.getItem("score_niv3")) + parseInt(localStorage.getItem("score_niv4"));
+		 var pseudo = localStorage.getItem("pseudo");
+		 console.log(score, pseudo);
+			$.post(
+				'http://melanie-croce.fr/projets/app-bubble-back/score.php', // PAGE PHP SUR LE SERVEUR
+				{
+					score : score,
+					pseudo : pseudo
+					
+				},
+				function(data){ 
+					if (data ="true") {
+						console.log("score envoyé");
+						window.location.href = 'highscore.html';
+					}
+				   else {
+						 console.log("score envoyé");
+					}
+				},				
+				'text' // Nous souhaitons recevoir "Success" ou "Failed", donc on indique text !
+
+			 );
+
+	});	
+>>>>>>> origin/master
 
 
 

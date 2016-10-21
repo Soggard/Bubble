@@ -15,6 +15,7 @@ $(document).ready(function() {
 	$(".app").append("<div class='table3 row'></div>");
 	$(".app").append("<div class='table4 row'></div>");
 	$(".app").append("<div class='table5 row'></div>");
+	
 	for(var i=0; i<25; i++) {
 		if (i<5) {
 			$(".table1").append("<div id='col-"+i+"' class='col s2 case' data-libre='0	'></div>");		
@@ -38,7 +39,7 @@ $(document).ready(function() {
 	$('#music').prop("volume", 0.1);
 
 
-var j=0;
+	var j=0;
 	
 	while( j < 15 ) {
 		var id = Math.floor((Math.random() * 25) + 1); // GENERE UN ID ALEATOIREMENT 
@@ -63,7 +64,9 @@ var j=0;
 	
 	/*$(".app").append("<button class='play'>Jouer</button>");*/
 	$(".table1").append("<div id='col-A' class='col s2' ><button class='play waves-effect waves-light btn blue'>Jouer</button>");
-	$(".table1").append("<br>Score :<span class='score'>0</span>");
+	$(".table1").append("<br>Score :<span class='score'>0</span><br />");
+	$(".table1").append("<button class='waves-effect waves-light btn blue' id='logout'>Logout</button>");
+	
 
 	// Son
 	$(".table3").append("<div id='col-C' class='col s2'> <button id='soundonoff' class='waves-effect waves-light btn blue' style='padding-left:0;padding-right:0'> Son on/off</button></div>");
@@ -138,19 +141,20 @@ function eclate(tag, points) {
 	nbBublleDetruite += 1;
     if(nbBublleDetruite==15){
         $(".app").append("<div class='message'>You survived ! Keep going</div>");
-        $(".table4").append("<div id='col-D' class='col s2' ><button data-total='"+score_total+"' class='waves-effect waves-light btn blue nextlevel btn-total' >Next level</button> ");
+        $(".table4").append("<div id='col-D' class='col s2' ><button class='waves-effect waves-light btn blue nextlevel' >Next level</button> ");
+		localStorage.setItem("score_niv1", score_total);
     }
 }
 
 
-$(document).on('click', '.btn-total', function() {
+$(document).on('click', '#logout', function() {
+	localStorage.clear();
+	window.location.href = 'index.html';
+})
 
-    var name = $(this).data('total');        
-    if (name != undefined && name != null) {
-        window.location = 'niv2.html?total=' + score_total;
-    }
-});
-
+$(document).on('click', '.nextlevel', function() {
+	window.location.href = 'niv2.html';
+})
 
 
 function soundSwitch () {

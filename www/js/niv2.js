@@ -6,7 +6,6 @@ var timer = 0;
 var timer_rapid = 0;
 var score_total = 0;
 var nbBublleDetruite = 0;
-var score_total_g = GetURLParameter('total');
 
 
 function GetURLParameter(sParam)
@@ -80,8 +79,8 @@ $(document).ready(function() {
 
     /*$(".app").append("<button class='play'>Jouer</button>");*/
     $(".table1").append("<div id='col-A' class='col s2' ><button class='play waves-effect waves-light btn blue'>Jouer</button>");
-    $(".table1").append("<br>Score :<span class='score'>0</span>");
-
+    $(".table1").append("<br>Score :<span class='score'>0</span><br />");
+	$(".table1").append("<button class='waves-effect waves-light btn blue' id='logout'>Logout</button>");
     // Son
     $(".table3").append("<div id='col-C' class='col s2'> <button id='soundonoff' class='waves-effect waves-light btn blue' style='padding-left:0;padding-right:0'> Son on/off</button></div>");
 
@@ -155,9 +154,23 @@ function eclate(tag, points) {
     nbBublleDetruite += 1;
     if(nbBublleDetruite==18){
         $(".app").append("<div class='message'>You survived ! Keep going</div>");
+<<<<<<< HEAD
         $(".table4").append("<div id='col-D' class='col s2' ><a href='niv3.html' class='waves-effect waves-light btn blue nextlevel' >Next level</a> ");
+=======
+        $(".table4").append("<div id='col-D' class='col s2' ><button class='waves-effect waves-light btn blue nextlevel' >Next level</button> ");
+		localStorage.setItem("score_niv2", score_total);
+>>>>>>> origin/master
     }
 }
+
+$(document).on('click', '#logout', function() {
+	localStorage.clear();
+	window.location.href = 'index.html';
+})
+
+$(document).on('click', '.nextlevel', function() {
+	window.location.href = 'niv3.html';
+})
 
 
 
