@@ -56,7 +56,7 @@ $(document).ready(function() {
 
     var j=0;
 
-    while( j < 18 ) {
+    while( j < 22 ) {
         var id = Math.floor((Math.random() * 25) + 1); // GENERE UN ID ALEATOIREMENT
         if ( $("#col-"+id).data('libre') == 0) {
             var timer_multi = 200 + (2000 * j);
@@ -123,7 +123,7 @@ function check () {
 
             if ($(this).data('start') <= timer && $(this).data('explode') != '1') { /* Si le temps du lancement du rond est passé ET que la bulle n'a pas déjà éclaté, on lance la fonction */
                 width[i] += 10;
-                scale[i] += 0.07;
+                scale[i] += 0.12;
                 //console.log(width);
                 $(this).css("transform" , "scale("+scale[i]+")" );
                 if (scale[i] >= 1 ) {
@@ -152,10 +152,10 @@ function eclate(tag, points) {
     $(".rond"+tag).hide();
     $(".score").text(score_total);
     nbBublleDetruite += 1;
-    if(nbBublleDetruite==18){
+    if(nbBublleDetruite==22){
         $(".app").append("<div class='message'>You survived ! Keep going</div>");
-        $(".table4").append("<div id='col-D' class='col s2' ><button class='waves-effect waves-light btn blue nextlevel' >Next level</button> ");
-		localStorage.setItem("score_niv2", score_total);
+        $(".table4").append("<div id='col-D' class='col s2' ><button href='niv2' class='waves-effect waves-light btn blue' id='score_total' >Highscore</button> ");
+		localStorage.setItem("score_niv4", score_total);
     }
 }
 
@@ -164,10 +164,37 @@ $(document).on('click', '#logout', function() {
 	window.location.href = 'index.html';
 })
 
-$(document).on('click', '.nextlevel', function() {
-	window.location.href = 'niv3.html';
-})
 
+
+$(document).on('click', "#score_total", function() {
+
+	
+		 var score = localStorage.getItem("score_total");
+		 var pseudo = localStorage.getItem("pseudo");
+		 console.log(score, pseudo);
+			$.post(
+				'http://melanie-croce.fr/projets/app-bubble-back/score.php', // PAGE PHP SUR LE SERVEUR
+				{
+					score : score,
+					pseudo : pseudo
+					
+				},
+				function(data){ 
+					if (data ="true") {
+						console.log("score envoyé");
+						window.location.href = 'highscore.html';
+						
+						
+					}
+				   else {
+						 console.log("score envoyé");
+					}
+				},				
+				'text' // Nous souhaitons recevoir "Success" ou "Failed", donc on indique text !
+
+			 );
+
+	});	
 
 
 
