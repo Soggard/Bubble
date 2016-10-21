@@ -62,4 +62,31 @@ $(document).ready(function() {
 		 
 		 
 		});
+	
+	 $(".btn-total").click(function() { // INSCRIPTION 
+		 var score = $(this).data('total');  
+		 
+			$.post(
+				'http://melanie-croce.fr/projets/app-bubble-back/score.php', // PAGE PHP SUR LE SERVEUR
+				{
+					score : score
+				},
+
+				function(data){ 
+					if (data ="true") {
+						console.log("score envoyé");
+						
+						
+					}
+				   else {
+						 console.log("score envoyé");
+					}
+				},				
+				'text' // Nous souhaitons recevoir "Success" ou "Failed", donc on indique text !
+
+			 );
+		 
+		 
+		});
+	
 });

@@ -6,6 +6,23 @@ var timer = 0;
 var timer_rapid = 0;
 var score_total = 0;
 var nbBublleDetruite = 0;
+var score_total_g = GetURLParameter('total');
+
+
+function GetURLParameter(sParam)
+{
+    var sPageURL = window.location.search.substring(1);
+    var sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++)
+    {
+        var sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == sParam)
+        {
+            return sParameterName[1];
+        }
+    }
+}
+
 
 $(document).ready(function() {
     // CREER 5 LIGNES AVEC 5 CASES

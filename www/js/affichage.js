@@ -138,10 +138,18 @@ function eclate(tag, points) {
 	nbBublleDetruite += 1;
     if(nbBublleDetruite==15){
         $(".app").append("<div class='message'>You survived ! Keep going</div>");
-        $(".table4").append("<div id='col-D' class='col s2' ><a href='niv2.html' class='waves-effect waves-light btn blue nextlevel' >Next level</a> ");
+        $(".table4").append("<div id='col-D' class='col s2' ><button data-total='"+score_total+"' class='waves-effect waves-light btn blue nextlevel btn-total' >Next level</button> ");
     }
 }
 
+
+$(document).on('click', '.btn-total', function() {
+
+    var name = $(this).data('total');        
+    if (name != undefined && name != null) {
+        window.location = 'niv2.html?total=' + score_total;
+    }
+});
 
 
 
