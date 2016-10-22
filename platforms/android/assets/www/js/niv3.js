@@ -8,6 +8,19 @@ var score_total = 0;
 var nbBublleDetruite = 0;
 
 
+function GetURLParameter(sParam)
+{
+    var sPageURL = window.location.search.substring(1);
+    var sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++)
+    {
+        var sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == sParam)
+        {
+            return sParameterName[1];
+        }
+    }
+}
 
 
 $(document).ready(function() {
@@ -43,7 +56,7 @@ $(document).ready(function() {
 
     var j=0;
 
-    while( j < 18 ) {
+    while( j < 21 ) {
         var id = Math.floor((Math.random() * 25) + 1); // GENERE UN ID ALEATOIREMENT
         if ( $("#col-"+id).data('libre') == 0) {
             var timer_multi = 200 + (2000 * j);
@@ -110,7 +123,7 @@ function check () {
 
             if ($(this).data('start') <= timer && $(this).data('explode') != '1') { /* Si le temps du lancement du rond est passé ET que la bulle n'a pas déjà éclaté, on lance la fonction */
                 width[i] += 10;
-                scale[i] += 0.07;
+                scale[i] += 0.09;
                 //console.log(width);
                 $(this).css("transform" , "scale("+scale[i]+")" );
                 if (scale[i] >= 1 ) {
@@ -139,10 +152,10 @@ function eclate(tag, points) {
     $(".rond"+tag).hide();
     $(".score").text(score_total);
     nbBublleDetruite += 1;
-    if(nbBublleDetruite==18){
+    if(nbBublleDetruite==21){
         $(".app").append("<div class='message'>You survived ! Keep going</div>");
         $(".table4").append("<div id='col-D' class='col s2' ><button class='waves-effect waves-light btn blue nextlevel' >Next level</button> ");
-		localStorage.setItem("score_niv2", score_total);
+		localStorage.setItem("score_niv3", score_total);
     }
 }
 
@@ -152,7 +165,7 @@ $(document).on('click', '#logout', function() {
 })
 
 $(document).on('click', '.nextlevel', function() {
-	window.location.href = 'niv3.html';
+	window.location.href = 'niv4.html';
 })
 
 
