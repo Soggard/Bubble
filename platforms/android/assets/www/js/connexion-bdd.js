@@ -53,7 +53,7 @@ $(document).ready(function() {
 						// Le membre est connecté. Ajoutons lui un message dans la page HTML.
 
 						$("#resultat").html("<p>Vous avez été inscrit avec succès !</p>"+data);
-						window.location.href = 'niv1.html';
+						window.location.href = 'index.html';
 						
 					}
 				   else {

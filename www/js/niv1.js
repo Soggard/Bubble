@@ -65,7 +65,7 @@ $(document).ready(function() {
 	/*$(".app").append("<button class='play'>Jouer</button>");*/
 	$(".table1").append("<div id='col-A' class='col s2' ><button class='play waves-effect waves-light btn blue'>Jouer</button>");
 	$(".table1").append("<br>Score :<span class='score'>0</span><br />");
-	$(".table1").append("<button class='waves-effect waves-light btn blue' id='logout'>Logout</button>");
+	//$(".table1").append("<button class='waves-effect waves-light btn blue' id='logout'>Logout</button>");
 	
 
 	// Son
