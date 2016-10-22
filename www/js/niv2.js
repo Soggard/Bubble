@@ -8,19 +8,6 @@ var score_total = 0;
 var nbBublleDetruite = 0;
 
 
-function GetURLParameter(sParam)
-{
-    var sPageURL = window.location.search.substring(1);
-    var sURLVariables = sPageURL.split('&');
-    for (var i = 0; i < sURLVariables.length; i++)
-    {
-        var sParameterName = sURLVariables[i].split('=');
-        if (sParameterName[0] == sParam)
-        {
-            return sParameterName[1];
-        }
-    }
-}
 
 
 $(document).ready(function() {
@@ -154,12 +141,8 @@ function eclate(tag, points) {
     nbBublleDetruite += 1;
     if(nbBublleDetruite==18){
         $(".app").append("<div class='message'>You survived ! Keep going</div>");
-<<<<<<< HEAD
-        $(".table4").append("<div id='col-D' class='col s2' ><a href='niv3.html' class='waves-effect waves-light btn blue nextlevel' >Next level</a> ");
-=======
         $(".table4").append("<div id='col-D' class='col s2' ><button class='waves-effect waves-light btn blue nextlevel' >Next level</button> ");
 		localStorage.setItem("score_niv2", score_total);
->>>>>>> origin/master
     }
 }
 
